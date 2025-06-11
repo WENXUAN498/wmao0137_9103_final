@@ -27,11 +27,15 @@ My work is inspired by the following concepts:
 
 - **Cosmic Phenomena:** The meteor shower effect and star patterns create a space-like atmosphere. The combination of static stars and moving meteors adds both stability and dynamism to the composition.
 
-![Audio Visualization Example](images/audio-viz-inspiration.png)
-**Picture 1:** Audio reactive circular visualization with radiating patterns
+- **Texture Overlays:** The use of multiply blend mode with textured overlays adds depth and visual complexity to the final output.
 
-![Space Theme Example](images/space-inspiration.png)  
-**Picture 2:** Cosmic theme with stars and meteors
+### Visual Assets
+
+![Texture](coding/assets/Texture.png)
+**Picture 1:** Main radial burst texture overlay
+
+![Texture02](coding/assets/Texture02.jpg)  
+**Picture 2:** Blue-tinted cosmic texture variation
 
 ## Technical Explanation
 
@@ -72,6 +76,7 @@ let totalR = max(noise(rms * 0.5) * width / 4, width / 20);
 
 // Dynamic coloring based on audio and time
 let color1 = color(rms * 255 + frameCount % 255, 255, 255, 255);
+let color2 = color(rms * 255 + frameCount % 255, 255, 255, 70);
 ```
 
 ### Radiating Lines Responsive to Audio
@@ -109,9 +114,28 @@ diverPoint(spectrum) {
 ```
 
 ### Meteor Layer Effect
-A separate graphics layer creates animated meteors for added visual depth.
+A separate graphics layer creates animated meteors for added visual depth. The meteors are randomly positioned with varying lengths and weights.
 
 ```javascript
 meteorLayer = createGraphics(windowWidth, windowHeight);
 drawMeteorLayer();
+
+// In the drawMeteorLayer function
+for (let i = 0; i < meteorCount; i++) {
+  let x = random(width);
+  let y = random(height);
+  let len = random(minLength, maxLength);
+  let weight = random(minWeight, maxWeight);
+  // Draw meteor with head and tail
+}
+```
+
+### Texture Overlay with Blend Mode
+The final visual effect is achieved by applying a texture overlay using the MULTIPLY blend mode, which creates depth and visual richness.
+
+```javascript
+push();
+blendMode(MULTIPLY);
+image(overallTexture, 0, 0, width, height);
+pop();
 ```
