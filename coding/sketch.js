@@ -22,6 +22,7 @@ function setup() {
 	analyser.setInput(song);
 	fft = new p5.FFT(smoothing, numBins);
 	song.connect(fft);
+	//Draw a button. If (!button) is to prevent the bug of two buttons appearing when moving the canvas.
 	if (!button) {
 		button = createButton("Play/Pause");
 		button.mousePressed(play_pause);
@@ -46,7 +47,7 @@ function draw() {
 	for (let i = 0; i < spectrum.length; i++) {
 		fill(map(i, 0, spectrum.length, 0, 255), 255, 255);
 	}
-
+	//Introducing the two main colors in the picture.
 	let color1 = color(rms * 255 + frameCount % 255, 255, 255, 255);
 	let color2 = color(rms * 255 + frameCount % 255, 255, 255, 70);
 
@@ -68,20 +69,18 @@ function draw() {
 	coreElements.diverPoint(spectrum);
 	coreElements.randomPoint();
 	coreElements.drawTriangle(90, rms);
-	// coreElements.drawTriangle(-90, rms);
 	coreElements.drawMoon();
-	// coreElements.lineCircle();
 	coreElements.decorationCircle();
 
 	//Draw the star in the middle
 	drawStar(-totalR / 9, 0, totalR / 9, 0);
 	pop();
-
+	//Displays specific Volume and Pan numbers
 	fill(255);
 	text('Volume: ' + volume.toFixed(2), 10, 20);
 	text('Pan: ' + pan.toFixed(2), 10, 40);
 
-	fill(255); // 重复绘制可保留或删除
+	fill(255);
 	text('Volume: ' + volume.toFixed(2), 10, 20);
 	text('Pan: ' + pan.toFixed(2), 10, 40);
 
@@ -92,12 +91,13 @@ function draw() {
 	pop();
 }
 
-//As the canvas size changes
+//As the canvas size changes, the relative position of the main element also changes
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 	button.position((width - button.width) / 2, height - button.height - 2);
 }
 
+//Change the state of music playback.
 function play_pause() {
 	if (song.isPlaying()) {
 		song.stop();

@@ -69,6 +69,7 @@ class createMutipleCircle {
   }
 
   // Draw different triangles by angle control
+  //Introducing rms to control the size of the circle.
   drawTriangle(d, rms) {
     noFill();
     stroke(255, 100);
@@ -94,7 +95,8 @@ class createMutipleCircle {
     endShape();
   }
 
-  // Lines radiating from a circle
+  // Lines radiating from a circle.
+  //Introducing rms to control line length.
   drawLine(rms) {
     let drawLineDegree = 30;
     for (let j = 0; j < 12; j++) {
@@ -115,7 +117,8 @@ class createMutipleCircle {
     pop();
   }
 
-  // The ordered points of the outermost circle
+  // The ordered points of the outermost circle.
+  //Draw dot-shaped sound waves that change with music.
   diverPoint(spectrum) {
     for (let j = 0; j < spectrum.length; j++) {
       let diverPointDegree = 360 / spectrum.length;
