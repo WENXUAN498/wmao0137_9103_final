@@ -102,7 +102,7 @@ class createMutipleCircle {
     for (let j = 0; j < 12; j++) {
       for (let i = 0; i < 5; i++) {
         push();
-        strokeWeight(this.size / 180);
+        strokeWeight(this.size / 140);
         stroke(this.color2);
         let x1 = cos(drawLineDegree * j - 67.5 - i * random(12.5)) * this.size * rms * 17 + this.x;
         let y1 = sin(drawLineDegree * j - 67.5 - i * random(12.5)) * this.size * rms * 17 + this.y;
