@@ -21,21 +21,27 @@ I chose **Audio Input** combined with **User Input** to drive my personal code.
 My personal code design creates an immersive audio-visual experience inspired by cosmic phenomena. The main visual elements include concentric circles, radiating lines, stars, and meteors that respond to music in real-time. The amplitude (RMS) values control the size and intensity of visual elements, while the frequency spectrum (FFT) drives the color variations and point distributions. The mouse interaction adds an extra layer of user control, allowing real-time manipulation of the audio experience. The overall aesthetic combines vibrant HSB colors with a dark background and texture overlay to create depth and visual interest.
 
 ## Inspiration
-My work is inspired by the following concepts:
+# Music Visualization – Design Inspiration
 
-- **Audio Visualizers:** Classic music visualization software that creates geometric patterns synchronized with music. The radiating lines and pulsing circles directly respond to the audio amplitude, creating a sense of rhythm and energy.
+My work revolves around music visualization, mainly utilizing size, color, and rhythm changes. The inspiration mainly comes from the following three visual images:
 
-- **Cosmic Phenomena:** The meteor shower effect and star patterns create a space-like atmosphere. The combination of static stars and moving meteors adds both stability and dynamism to the composition.
+- **Picture 1** presents a rhythmic diffusion pattern composed of many square units, forming a structure similar to sound waves or ripples. I borrowed this structure and used the `diverPoint()` and `randomPoint()` methods in the group code to convert the audio spectrum into a dynamically diffused dot matrix. This approach imitates the rhythmic arrangement of small elements in the image, making my visual work rich in variation and tension.
 
-- **Texture Overlays:** The use of multiply blend mode with textured overlays adds depth and visual complexity to the final output.
+- **Picture 2** displays a linear structure radiating outward from a central point. It conveys a strong sense of direction and order, resulting in a striking visual impact. This inspired me to incorporate multiple sets of radial lines and geometric structures in my work. By using the `drawLine()` method in the group code, and adjusting the transparency and line length, I was able to recreate a similar sense of rhythm and visual intensity.
 
-### Visual Assets
+- **Picture 3** uses colorful dots of varying sizes, surrounded by concentric rings, to build a composition full of rhythm and visual depth. The shifting colors of the rings introduce strong hierarchy and motion. This directly inspired my use of the `drawTriangle()` method, where triangle size responds dynamically to the music volume, and the overall color palette gradually transitions to enhance visual dynamism.
 
 ![Picture1](ReadmeImages/Picture1.jpg)
-**Picture 1:** Main radial burst texture overlay
 
-![Texture02](coding/assets/Texture02.jpg)  
-**Picture 2:** Blue-tinted cosmic texture variation
+**Picture 1** ([Source](https://www.pinterest.com/pin/1477812373483954/))
+
+![Picture2](ReadmeImages/Picture2.png)
+
+**Picture 2** ([Source](https://www.amazon.com/FINGERINSPIRE-Starburst-Stencils-11-8x11-8-Painting/dp/B0B8234XNW/ref=asc_df_B0B8234XNW?tag=ushpadpinde-20&hvdev=c&hvpone=626752247357&hvptwo=2680081096481&hvqmt=4260608469520&hvadid=4672955233506&psc=1&pp=0&epik=dj0yJnU9cVV0bUlXWndtTl9QcmtaOGVCWFpHcTFxMlIwQWpjUmsmcD0xJm49XzFHN1FZZmZiZHViNEtILVVIcUJPdyZ0PUFBQUFBR2hMdmE4))
+
+![Picture3](ReadmeImages/Picture3.jpg)
+
+**Picture 3** ([Source](https://www.pinterest.com/pin/68748368248/))
 
 ## Technical Explanation
 
