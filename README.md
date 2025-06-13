@@ -31,7 +31,7 @@ My work is inspired by the following concepts:
 
 ### Visual Assets
 
-![Texture](coding/assets/Texture.png)
+![Picture1](ReadmeImages/Picture1.jpg)
 **Picture 1:** Main radial burst texture overlay
 
 ![Texture02](coding/assets/Texture02.jpg)  
@@ -40,7 +40,7 @@ My work is inspired by the following concepts:
 ## Technical Explanation
 
 ### Audio Analysis Setup
-The code uses p5.sound library for audio analysis. FFT (Fast Fourier Transform) analyzes the frequency spectrum, while the Amplitude analyzer captures the overall volume level.
+The code uses p5.sound library for audio analysis. FFT analyzes the frequency spectrum, while the Amplitude analyzer captures the overall volume level.
 
 ```javascript
 analyser = new p5.Amplitude();
@@ -65,7 +65,7 @@ function mouseMoved() {
 ```
 
 ### Dynamic Visual Elements Based on Audio
-The visualization size and colors respond to the audio analysis. The RMS (Root Mean Square) value determines the overall size, while colors shift based on both RMS and time.
+The visualization size and colors respond to the audio analysis. The rms value determines the overall size, while colors shift based on both rms and time.
 
 ```javascript
 let spectrum = fft.analyze();
@@ -113,29 +113,3 @@ diverPoint(spectrum) {
 }
 ```
 
-### Meteor Layer Effect
-A separate graphics layer creates animated meteors for added visual depth. The meteors are randomly positioned with varying lengths and weights.
-
-```javascript
-meteorLayer = createGraphics(windowWidth, windowHeight);
-drawMeteorLayer();
-
-// In the drawMeteorLayer function
-for (let i = 0; i < meteorCount; i++) {
-  let x = random(width);
-  let y = random(height);
-  let len = random(minLength, maxLength);
-  let weight = random(minWeight, maxWeight);
-  // Draw meteor with head and tail
-}
-```
-
-### Texture Overlay with Blend Mode
-The final visual effect is achieved by applying a texture overlay using the MULTIPLY blend mode, which creates depth and visual richness.
-
-```javascript
-push();
-blendMode(MULTIPLY);
-image(overallTexture, 0, 0, width, height);
-pop();
-```
